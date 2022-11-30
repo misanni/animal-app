@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head.ejs") %>
+<body style="font-family:cursive;">
+  
+    <h1>Animal App</h1>
+    <%- include("../partials/header.ejs") %>
+    <main>
+      <div>
+          <a href="/animals/new"><button>Create A New animal</button></a>
+        <center>
+    <table class=“table table-striped”style=“width:70%;margin-left:3rem”>
+      <tr>
+        <th>Name</th>
+        <th>Species</th>
+        <th>Extinct</th>
+        <th>Location</th>
+        <th>Life Expectancy</th>
+</tr>
+      <% for(let i = 0; i < animals.length; i++) { %>
+        
+           <tr>
+            <td><a href="/animals/<%=animals[i]._id%>">
+              <%=animals[i].name %></a></td>
+              <td> <%=animals[i].species %></td>
+            <td><a href="/animals/<%=animals[i]._id%>"> <%= animals[i].extinct ? "Yes" : "No" %></td>
+            <td> <%= animals[i].location %></td>
+            <td> <%= animals[i].lifeExpectancy %></td>
+            </tr>
+    <% } %>
+</table>
+</center> 
+
+
+
+
+      
+      </div>
+    </main>
+
+  </body>
+</html>
